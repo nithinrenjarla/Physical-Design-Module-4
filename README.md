@@ -64,7 +64,8 @@ The project also focuses on key concepts related to digital circuit timing, incl
 
 # Tools & Technologies
 
-| **Tools / Technologies** | **Purpose** |
+| ** Tools / Technologies** | ** Purpose** |
+|---|---|
 | **OpenLane** | RTL-to-GDSII physical design flow |
 | **OpenROAD** | Physical implementation and timing analysis |
 | **Yosys** | RTL synthesis and logic optimization |
@@ -74,3 +75,4 @@ The project also focuses on key concepts related to digital circuit timing, incl
 | **Linux Terminal** | Flow execution and analysis |
 | **Tcl** | OpenLane/OpenROAD configuration and scripting |
 | **Git & GitHub** | Version control and documentation |
+
