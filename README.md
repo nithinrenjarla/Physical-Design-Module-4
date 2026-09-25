@@ -81,7 +81,8 @@ The physical layout contains geometric information across several interconnect l
 
 The coordinate data describes the position, size, and boundaries of physical layout elements along the X and Y directions. This helps connect the logical design with its actual physical implementation.
 
-IIII
+<img width="700" alt="q" src="https://github.com/user-attachments/assets/3efe9375-9df1-4a80-a07e-40afa075d9c9" />
+
 
 # 2.Magic VLSI Layout & DRC Environment
 The design is examined using Magic VLSI with the SKY130A technology, providing a physical representation of the implemented circuit.
@@ -90,7 +91,8 @@ The layout consists of different layers used for representing transistors, diffu
 
 The Magic command interface can also be used to inspect and control layout properties. Commands such as grid provide information about the layout grid and help maintain accurate physical dimensions according to the selected technology.
 
-IIII
+<img width="700" alt="wq" src="https://github.com/user-attachments/assets/2045713a-e14c-48e6-bece-eeac4ccf2cf8" />
+
 
 # 3.Standard-Cell Physical Layout
 A standard cell is represented at the physical level using a combination of geometric shapes and technology-specific layers. These layers define the internal transistor structures as well as the connections required for circuit operation.
@@ -109,7 +111,8 @@ CMOS transistor structures
 
 Power and ground connections
 
-IIII
+<img width="700" alt="wqq" src="https://github.com/user-attachments/assets/9b99b5e2-8883-4ae7-9ca8-c053efaacb1b" />
+
 
 This layout illustrates how a logical standard cell is transformed into a physical geometry that can be integrated, placed, and routed as part of a larger digital circuit.
 
@@ -120,7 +123,8 @@ The PicoRV32A implementation is configured in OpenLane using a set of design and
 
 The configuration defines the main design information, including the top-level module, RTL sources, timing constraints, and clock settings. These parameters provide the required inputs for synthesis, physical implementation, and timing analysis.
 
-IIII
+<img width="700" alt="r" src="https://github.com/user-attachments/assets/1aa73ff9-4c5e-4c29-a5be-46eb0bbacdc9" />
+
 
 - Design Name: picorv32a
 
@@ -143,7 +147,8 @@ The synthesis stage transforms the PicoRV32A RTL design into a technology-specif
 
 During synthesis, generic logic elements such as flip-flops and combinational logic are converted into corresponding library cells. The generated synthesis report provides useful information about the structure and complexity of the resulting design.
 
-IIII
+<img width="700" alt="t" src="https://github.com/user-attachments/assets/f79fb3db-df6e-4757-a7b9-80200443fec0" />
+
 
 - Wire and wire-bit counts
 
@@ -164,19 +169,22 @@ After technology mapping, the synthesis flow generates detailed statistics descr
 
 The report provides a breakdown of the mapped logic elements, giving an overview of the different cell types present in the synthesized netlist.
 
-IIII
+<img width="700" alt="y" src="https://github.com/user-attachments/assets/8cce684c-d43c-4024-a5e9-2c56ad50cfb9" />
+
 
 # 7.Static Timing Analysis — Slack Violation
 Static Timing Analysis (STA) is used to evaluate whether the implemented design satisfies its required timing constraints. The timing report provides information about the relationship between the arrival and required times of signals.
 
-IIII
+<img width="700" alt="u" src="https://github.com/user-attachments/assets/cee361a3-4ee6-4f5e-a674-1ed9b76942d2" />
+
 
 # 8.Power-Aware Clock Tree Synthesis
 Power-Aware Clock Tree Synthesis (CTS) focuses on building an efficient clock distribution network while maintaining the required timing characteristics.
 
 The clock network can be organized through multiple buffering stages, where each stage drives the next set of clock loads. Buffer delay is influenced by factors such as input slew and output capacitive load.
 
-IIIII
+<img width="700" alt="i" src="https://github.com/user-attachments/assets/2e589964-580f-44cc-896f-81cdc27f37f2" />
+
 
 During CTS, the clock network is structured so that sequential elements receive the clock with controlled skew and appropriate delay. At the same time, buffer selection and loading are considered to manage clock power consumption.
 
@@ -187,7 +195,8 @@ The final physical-design stage produces a complete layout containing the placed
 
 The layout represents the transformation of the synthesized design into a physical chip structure, with various cells and connections organized according to the technology and design constraints.
 
-IIII
+<img width="700" alt="a" src="https://github.com/user-attachments/assets/45f9d9d5-6390-4d74-aaf8-31473346930b" />
+
 
 - Standard-cell placement
 
@@ -206,7 +215,8 @@ The completed layout provides a consolidated view of the physical implementation
 # 10.Detailed Standard-Cell Placement and Connectivity
 The physical implementation contains a collection of SKY130 standard cells arranged according to the placement results. These cells form the basic building blocks of the implemented digital logic.
 
-IIII
+<img width="700" alt="s" src="https://github.com/user-attachments/assets/c578b31e-f732-46b6-8570-7a1d8ced1217" />
+
 
 The placed design includes various sequential and combinational elements, such as:
 
@@ -223,3 +233,148 @@ The placed design includes various sequential and combinational elements, such a
 - Clock-related structures
 
 - Power-related connections
+
+# 11.Clock Tree Synthesis
+Clock Tree Synthesis (CTS) is used to distribute the clock signal from a common source to different sequential elements in the design.
+
+In this example, FF1 and FF2 receive the clock through the clock distribution network. Since the clock paths may have different delays, the clock may reach each flip-flop at slightly different times.
+
+<img width="700" alt="d" src="https://github.com/user-attachments/assets/1bbd4d0f-934a-48f8-9ea9-fd52f3787880" />
+
+
+# 12.Clock Tree Buffering
+Clock-tree buffering is used to distribute the clock signal effectively across a large digital design. Instead of connecting the clock source directly to all sequential elements, buffers are placed at different points in the clock network.
+
+The clock signal is divided into several branches, with each buffer driving a specific group of loads. This helps control the signal strength and delay as the clock travels through the network.
+
+<img width="700" alt="f" src="https://github.com/user-attachments/assets/5878ba7d-9404-4dbf-8bea-3c390fafa28c" />
+
+
+# 13.Crosstalk Delta Delay and Clock Skew
+Crosstalk occurs when signals on nearby interconnects interact through coupling capacitance. This interaction can change the propagation delay of a signal travelling through the affected wire.
+
+In a clock network, such delay changes can cause the clock signal to reach different sequential elements at different times, resulting in a change in clock skew.
+
+<img width="700" alt="gg" src="https://github.com/user-attachments/assets/3342ffde-2ac9-4a50-97ce-9b03a84a568e" />
+
+
+# 14.Hold Analysis with Real Clocks:
+Hold-time analysis checks whether the data launched by one flip-flop remains stable for the required duration at the receiving flip-flop.
+
+The timing path can be represented as:
+
+Launch Flip-Flop → Combinational Logic → Capture Flip-Flop
+
+During analysis, the actual clock propagation delay through the clock network is taken into account. This provides a more realistic view of the timing relationship between the launching and capturing elements.
+
+<img width="700" alt="h" src="https://github.com/user-attachments/assets/d92b8824-85e6-406b-bdc2-91b83709bb00" />
+
+
+# 15.Hold Analysis Using Flip-Flop Internal Structure
+Hold-time behaviour can also be studied by looking at the internal structure of a flip-flop. In this representation, the flip-flop is modelled using two multiplexers that work together to control data transfer.
+
+<img width="700" alt="j" src="https://github.com/user-attachments/assets/46eb5611-dfbb-4180-88c0-b0119c1e7210" />
+
+The internal structure includes:
+
+Mux1
+
+Mux2
+
+Master stage
+
+Slave stage
+
+Data propagation path
+
+Clock-controlled data transfer
+
+The two multiplexers help illustrate how the input data moves through the internal master-slave stages depending on the clock state.
+
+This type of analysis provides a better understanding of the internal data path and hold-time requirements of the flip-flop, particularly when evaluating the minimum delay needed to prevent incorrect data capture.
+
+# 16.Clock Propagation and Timing Report
+The OpenROAD timing report provides information about how the clock signal travels through the implemented clock network.
+
+The report helps trace the clock path from its source to the relevant sequential elements and shows the delays introduced by the clock distribution network.
+
+# 17.Timing Analysis with Ideal Clocks
+Ideal-clock timing analysis assumes that the clock reaches the relevant sequential elements without considering the physical delay of the clock distribution network.
+
+This approach is useful during the earlier stages of timing analysis, where the focus is mainly on the data path and timing constraints rather than the actual clock-tree implementation.
+
+<img width="700" alt="l" src="https://github.com/user-attachments/assets/262bc6b8-5ca3-4d3e-a12d-c768888351cb" />
+
+
+- Ideal clock source
+
+- No clock network propagation delay
+
+- Data path delay analysis
+
+- Setup and hold constraints
+
+- Clock-to-data timing relationship
+
+- Pre-CTS timing analysis
+
+Ideal-clock analysis provides an initial view of whether the design can meet its timing requirements before the actual clock tree and its associated delays are included.
+
+# 18.Setup Analysis with Ideal Clocks
+Setup-time analysis checks whether the input data reaches the receiving flip-flop early enough before the active clock edge. With an ideal clock, the clock distribution delay is not included in the analysis.
+
+The flip-flop can be represented using its internal multiplexer structure, including Mux1 and Mux2. The internal timing path can be observed through signals such as D, Q_M, and Q.
+
+#  Setup-Time Concept
+A certain amount of time is required for the input data to propagate through the internal structure before it can be reliably captured by the flip-flop.
+
+Setup Time: The minimum time for which the input data must remain stable before the active clock edge.
+
+A setup violation occurs when the data arrives too close to, or after, the active clock edge.
+
+#  Hold-Time Concept
+Hold Time: The minimum time for which the input data must remain stable after the active clock edge.
+
+A hold violation occurs when the data changes before the required hold interval has elapsed.
+
+#  Important Timing Signals
+- Clock
+
+- Data (D)
+
+- Internal node (Q_M)
+
+- Output (Q)
+
+- Setup time
+
+- Hold time
+
+Together, setup and hold analysis ensures that data is captured correctly by the flip-flop under the specified timing conditions.
+
+# Conclusion
+Module 4 covers the complete process of taking a synthesized RTL design through physical implementation and timing analysis.
+
+The overall flow can be summarized as:
+
+Synthesis → Placement → Clock Tree Synthesis → Routing → Parasitic Extraction → Static Timing Analysis → Timing Closure
+
+The PicoRV32A processor is implemented using the SKY130A technology with the OpenLane/OpenROAD physical-design flow. The different stages show how the logical design is converted into an actual physical layout and then checked for timing requirements.
+
+During physical implementation, several factors can affect the final timing performance, including:
+
+Cell propagation delays
+
+Wire resistance and capacitance (RC)
+
+Clock latency
+
+Clock skew
+
+Crosstalk effects
+
+Buffer delays
+
+Setup and hold constraints
+
+Therefore, physical design is not limited to placing and routing cells. The final implementation must also satisfy the required physical, electrical, and timing constraints to achieve a reliable design.
