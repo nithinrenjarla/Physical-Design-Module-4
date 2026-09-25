@@ -64,13 +64,13 @@ The project also focuses on key concepts related to digital circuit timing, incl
 
 # Tools & Technologies
 
-| Tools / Technologies | Purpose |
-| OpenLane | RTL-to-GDSII physical design flow |
-| OpenROAD | Physical implementation and timing analysis |
-| Yosys | RTL synthesis and logic optimization |
-| SKY130A PDK | CMOS technology and standard-cell library |
-| Magic VLSI | Layout viewing and physical verification |
-| PicoRV32A | RISC-V processor design used as the implementation target |
-| Linux Terminal | Flow execution and analysis |
-| Tcl | OpenLane/OpenROAD configuration and scripting |
-| Git & GitHub | Version control and documentation |
+| **Tools / Technologies** | **Purpose** |
+| **OpenLane** | RTL-to-GDSII physical design flow |
+| **OpenROAD** | Physical implementation and timing analysis |
+| **Yosys** | RTL synthesis and logic optimization |
+| **SKY130A PDK** | CMOS technology and standard-cell library |
+| **Magic VLSI** | Layout viewing and physical verification |
+| **PicoRV32A** | RISC-V processor design used as the implementation target |
+| **Linux Terminal** | Flow execution and analysis |
+| **Tcl** | OpenLane/OpenROAD configuration and scripting |
+| **Git & GitHub** | Version control and documentation |
